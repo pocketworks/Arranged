@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2017 Alexander Grebenyuk (github.com/kean).
+// Copyright (c) 2018 Alexander Grebenyuk (github.com/kean).
 
 import Arranged
 import UIKit
@@ -127,11 +127,11 @@ class LayoutTests: XCTestCase {
     
     // MARK: Tests Implementation
 
-    func _test(_ views: @escaping ((Void) -> [UIView])) {
+    func _test(_ views: @escaping (() -> [UIView])) {
         _test(views: views, update: nil)
     }
     
-    func _test(views: @escaping ((Void) -> [UIView]), update: ((StackViewAdapter, [UIView]) -> Void)?) {
+    func _test(views: @escaping (() -> [UIView]), update: ((StackViewAdapter, [UIView]) -> Void)?) {
         var failedCount = 0
         let combinations = StackTestConfiguraton.generate()
         combinations.forEach {
@@ -147,7 +147,7 @@ class LayoutTests: XCTestCase {
         print("Total passes: \(testCasesCount - failedTestCasesCount)/\(testCasesCount) combinations")
     }
     
-    func _test(_ viewsClosure: @escaping ((Void) -> [UIView]), update: ((StackViewAdapter, [UIView]) -> Void)?, conf: StackTestConfiguraton) -> Bool {
+    func _test(_ viewsClosure: @escaping (() -> [UIView]), update: ((StackViewAdapter, [UIView]) -> Void)?, conf: StackTestConfiguraton) -> Bool {
         let stack1 = UIStackView()
         let stack2 = StackView()
         
