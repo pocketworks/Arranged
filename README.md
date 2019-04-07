@@ -8,6 +8,8 @@
 
 Open source replacement of [UIStackView](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UIStackView_Class_Reference/) for iOS 8 (100% layouts supported)
 
+> **Deprecated**. UIStackView was introduces in iOS 9, please use the native one.
+
 <img src="https://cloud.githubusercontent.com/assets/1567433/13573981/364b2946-e493-11e5-9d02-893a5dc11a8c.png" width="50%"/>
 
 - Supports all `alignments` and `distributions`, `spacing`, `baselineRelativeArrangement`, `layoutMarginsRelativeArrangement`, `axis`
