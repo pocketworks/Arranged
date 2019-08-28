@@ -147,7 +147,7 @@ open class StackView : UIView {
     
     The stack view ensures that the arrangedSubviews array is always a subset of its subviews array. This method automatically adds the provided view as a subview of the stack view, if it is not already. If the view is already a subview, this operation does not alter the subview ordering.
     */
-    open func addArrangedSubview(_ view: UIView) {
+    @objc open func addArrangedSubview(_ view: UIView) {
         insertArrangedSubview(view, atIndex: arrangedSubviews.count)
     }
     
