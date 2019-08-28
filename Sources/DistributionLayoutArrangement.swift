@@ -94,7 +94,7 @@ class DistributionLayoutArrangement: LayoutArrangement {
         }
         let itemsWithIntrinsic: [UIView] = visibleItems.filter {
             let size = sizeFor($0)
-            return size != UIView.noIntrinsicMetric && size > 0
+            return size != UIViewNoIntrinsicMetric && size > 0
         }
         guard itemsWithIntrinsic.count > 0 else {
             matchItemsSize(visibleItems)
@@ -107,7 +107,7 @@ class DistributionLayoutArrangement: LayoutArrangement {
         var priority: UILayoutPriority? = (itemsWithIntrinsic.count == 1 && (visibleItems.count == 1 || spacing == 0.0)) ? nil : UILayoutPriority(rawValue: 999)
         visibleItems.forEach {
             let size = sizeFor($0)
-            if size != UIView.noIntrinsicMetric && size > 0 {
+            if size != UIViewNoIntrinsicMetric && size > 0 {
                 constraint(item: $0, attribute: width, toItem: canvas, relation: .equal, multiplier: (size / totalSize), priority: priority, identifier: "ASV-fill-proportionally")
             } else {
                 constraint(item: $0, attribute: width, constant: 0, identifier: "ASV-fill-proportionally")

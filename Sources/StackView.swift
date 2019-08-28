@@ -6,10 +6,10 @@ import UIKit
 
 /** The layout that defines the size and position of the arranged views along the stack view’s axis.
 */
-public enum StackViewDistribution {
+@objc public enum StackViewDistribution: Int {
     /** A layout where the stack view resizes its arranged views so that they fill the available space along the stack view’s axis.
      */
-    case fill
+    case fill  = 0
     
     /** A layout where the stack view resizes its arranged views so that they fill the available space along the stack view’s axis. The views are resized so that they are all the same size along the stack view’s axis.
      */
@@ -31,10 +31,10 @@ public enum StackViewDistribution {
 
 /** Alignment—the layout transverse to the stacking axis.
  */
-public enum StackViewAlignment {
+@objc public enum StackViewAlignment: Int {
     /** A layout where the stack view resizes its arranged views so that they fill the available space perpendicular to the stack view’s axis.
      */
-    case fill
+    case fill = 0
     
     /** A layout for vertical stacks where the stack view aligns the leading edge of its arranged views along its leading edge. This is equivalent to the `StackViewAlignment.Top` alignment for horizontal stacks.
      */
@@ -77,32 +77,32 @@ The StackView class provides a streamlined interface for laying out a collection
 open class StackView : UIView {
     
     /// The axis along which the arranged views are laid out.
-    open var axis: NSLayoutConstraint.Axis = .horizontal {
+    @objc open var axis: NSLayoutConstraint.Axis = .horizontal {
         didSet { if axis != oldValue { invalidateLayout() } }
     }
     
     /// The distribution of the arranged views along the stack view’s axis.
-    open var distribution: StackViewDistribution = .fill {
+    @objc open var distribution: StackViewDistribution = .fill {
         didSet { if distribution != oldValue { invalidateLayout() } }
     }
     
     /// The alignment of the arranged subviews perpendicular to the stack view’s axis.
-    open var alignment: StackViewAlignment = .fill {
+    @objc open var alignment: StackViewAlignment = .fill {
         didSet { if alignment != oldValue { invalidateLayout() } }
     }
     
     /// The distance in points between the adjacent edges of the stack view’s arranged views.
-    open var spacing: CGFloat = 0.0 {
+    @objc open var spacing: CGFloat = 0.0 {
         didSet { if spacing != oldValue { invalidateLayout() } }
     }
     
     /// A Boolean value that determines whether the vertical spacing between views is measured from their baselines.
-    open var isBaselineRelativeArrangement = false {
+    @objc open var isBaselineRelativeArrangement = false {
         didSet { if isBaselineRelativeArrangement != oldValue { invalidateLayout() } }
     }
     
     /// A Boolean value that determines whether the stack view lays out its arranged views relative to its layout margins.
-    open var isLayoutMarginsRelativeArrangement = false {
+    @objc open var isLayoutMarginsRelativeArrangement = false {
         didSet { if isLayoutMarginsRelativeArrangement != oldValue { invalidateLayout() } }
     }
 
